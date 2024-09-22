@@ -1,0 +1,996 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../AnaliseSentimentoLLAMA/">
+      
+      
+        <link rel="next" href="../SistemaRecomendacao/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>Detecção de Anomalia - APPLIEN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.06209087.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deteccao-anomalia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="APPLIEN" class="md-header__button md-logo" aria-label="APPLIEN" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APPLIEN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Detecção de Anomalia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="APPLIEN" class="md-nav__button md-logo" aria-label="APPLIEN" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    APPLIEN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Selecionar Cartas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Selecionar Cartas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SelecionarCartasUsuario/SelecionarCartas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selecionar Cartas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sugerir Primeiras Cartas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sugerir Primeiras Cartas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SugerirPrimeirasCartas/SugerirPrimeiraCarta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sugerir Primeira Carta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SugerirPrimeirasCartas/PularPrimeiraCarta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pular Primeira Carta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Recomendar Cartas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Recomendar Cartas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FuncaoGeral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Função Geral
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AnaliseSentimentoLLAMA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analise de Sentimento LLAMA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Detecção de Anomalia
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Detecção de Anomalia
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura do Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-e-classes-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funções e Classes Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funções e Classes Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deteccaoanomaliasentimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeteccaoAnomaliaSentimento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeteccaoAnomaliaSentimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__modelo_cbow-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__(modelo_cbow, dataFrame)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armazenar_cartas_positivas_e_negativascartaatual-intensidadesentimento-listacartascompalavraschaves-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      armazenar_cartas_positivas_e_negativas(cartaAtual, intensidadeSentimento, listaCartasComPalavrasChaves, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detectar_erroultimaintensidade-intensidadesentimento-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      detectar_erro(ultimaIntensidade, intensidadeSentimento, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_vectorpalavra" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_vector(palavra)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_mean_vectorpalavras" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mean_vector(palavras)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calcular_similaridadevetor1-vetor2" class="md-nav__link">
+    <span class="md-ellipsis">
+      calcular_similaridade(vetor1, vetor2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomendar_cartasusuario_palavras-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      recomendar_cartas(usuario_palavras, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SistemaRecomendacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendar Carta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura do Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-e-classes-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Funções e Classes Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Funções e Classes Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deteccaoanomaliasentimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeteccaoAnomaliaSentimento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeteccaoAnomaliaSentimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__modelo_cbow-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__(modelo_cbow, dataFrame)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armazenar_cartas_positivas_e_negativascartaatual-intensidadesentimento-listacartascompalavraschaves-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      armazenar_cartas_positivas_e_negativas(cartaAtual, intensidadeSentimento, listaCartasComPalavrasChaves, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detectar_erroultimaintensidade-intensidadesentimento-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      detectar_erro(ultimaIntensidade, intensidadeSentimento, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_vectorpalavra" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_vector(palavra)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_mean_vectorpalavras" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mean_vector(palavras)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calcular_similaridadevetor1-vetor2" class="md-nav__link">
+    <span class="md-ellipsis">
+      calcular_similaridade(vetor1, vetor2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomendar_cartasusuario_palavras-cartas_subgrupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      recomendar_cartas(usuario_palavras, cartas_subgrupo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="deteccao-anomalia">Detecção Anomalia</h1>
+<h2 id="descricao">Descrição</h2>
+<p>O módulo <code>DeteccaoAnomaliaSentimento</code> é projetado para detectar anomalias em sentimentos baseados em cartas, utilizando palavras-chave e um modelo CBOW (Continuous Bag of Words) para calcular a similaridade entre palavras. A motivação para a criação deste módulo surge da necessidade de analisar feedbacks e sentimentos expressos por meio de cartas, ajudando a identificar padrões de sentimento e recomendações apropriadas com base em sentimentos anteriores. O módulo resolve o problema de entender e gerenciar respostas emocionais, permitindo que as cartas sejam ajustadas para melhor atender as expectativas dos usuários.</p>
+<h2 id="estrutura-do-modulo">Estrutura do Módulo</h2>
+<p>A estrutura do módulo é organizada da seguinte forma:</p>
+<pre><code>- `deteccao_anomalia_sentimento.py`: Implementação da classe DeteccaoAnomaliaSentimento, incluindo métodos para armazenar sentimentos, detectar erros, e recomendar cartas.
+</code></pre>
+<h2 id="uso">Uso</h2>
+<p>Para usar o módulo, é necessário importar a classe e instanciá-la com um modelo CBOW e um DataFrame contendo as cartas e suas palavras-chave. A seguir estão exemplos de uso:</p>
+<h3 id="exemplo">Exemplo</h3>
+<pre><code class="language-python">import pandas as pd
+from deteccao_anomalia_sentimento import DeteccaoAnomaliaSentimento
+
+# Exemplo de DataFrame com cartas e palavras-chave
+data = {
+    'Descricao': ['Carta 1', 'Carta 2', 'Carta 3'],
+    'PalavrasChave': ['feliz, alegre', 'triste, decepcionado', 'neutro, comum']
+}
+dataFrame = pd.DataFrame(data)
+
+# Exemplo de modelo CBOW (substitua pela implementação real)
+modelo_cbow = {'feliz': np.random.rand(300), 'alegre': np.random.rand(300),
+               'triste': np.random.rand(300), 'decepcionado': np.random.rand(300),
+               'neutro': np.random.rand(300), 'comum': np.random.rand(300)}
+
+detector = DeteccaoAnomaliaSentimento(modelo_cbow, dataFrame)
+
+# Armazenando uma carta e detectando anomalias
+resultado = detector.armazenar_cartas_positivas_e_negativas('Carta 1', 0.5, dataFrame, ['Carta 1', 'Carta 2'])
+print(resultado)
+</code></pre>
+<h2 id="funcoes-e-classes-principais">Funções e Classes Principais</h2>
+<h3 id="deteccaoanomaliasentimento"><code>DeteccaoAnomaliaSentimento</code></h3>
+<h4 id="__init__modelo_cbow-dataframe"><code>__init__(modelo_cbow, dataFrame)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Inicializa a classe <code>DeteccaoAnomaliaSentimento</code> com um modelo CBOW e um DataFrame de cartas.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>modelo_cbow</code>: Objeto do modelo CBOW utilizado para converter palavras em vetores.</li>
+<li><code>dataFrame</code>: DataFrame contendo as descrições das cartas e suas palavras-chave.</li>
+</ul>
+<h4 id="armazenar_cartas_positivas_e_negativascartaatual-intensidadesentimento-listacartascompalavraschaves-cartas_subgrupo"><code>armazenar_cartas_positivas_e_negativas(cartaAtual, intensidadeSentimento, listaCartasComPalavrasChaves, cartas_subgrupo)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Armazena palavras-chave positivas ou negativas de uma carta, de acordo com a intensidade do sentimento, e verifica a detecção de anomalias.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>cartaAtual</code>: A descrição da carta atual.</li>
+<li><code>intensidadeSentimento</code>: A intensidade do sentimento gerado pela carta.</li>
+<li><code>listaCartasComPalavrasChaves</code>: DataFrame contendo cartas e suas palavras-chave.</li>
+<li><code>cartas_subgrupo</code>: Lista de cartas pertencentes a um subgrupo específico.</li>
+<li><strong>Retorno</strong>: Carta recomendada se houver detecção de anomalia, caso contrário, <code>None</code>.</li>
+</ul>
+<h4 id="detectar_erroultimaintensidade-intensidadesentimento-cartas_subgrupo"><code>detectar_erro(ultimaIntensidade, intensidadeSentimento, cartas_subgrupo)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Detecta se há repetição de sentimentos positivos ou negativos consecutivos.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>ultimaIntensidade</code>: A última intensidade do sentimento armazenada.</li>
+<li><code>intensidadeSentimento</code>: A nova intensidade do sentimento a ser verificada.</li>
+<li><code>cartas_subgrupo</code>: Lista de cartas pertencentes a um subgrupo específico.</li>
+<li><strong>Retorno</strong>: Carta recomendada se uma anomalia for detectada, caso contrário, <code>None</code>.</li>
+</ul>
+<h4 id="get_vectorpalavra"><code>get_vector(palavra)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Obtém o vetor associado a uma palavra do modelo CBOW.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>palavra</code>: A palavra a ser convertida em vetor.</li>
+<li><strong>Retorno</strong>: O vetor da palavra, ou um vetor de zeros se a palavra não estiver no modelo.</li>
+</ul>
+<h4 id="get_mean_vectorpalavras"><code>get_mean_vector(palavras)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Calcula o vetor médio de uma lista de palavras.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>palavras</code>: Lista de palavras para calcular o vetor médio.</li>
+<li><strong>Retorno</strong>: O vetor médio das palavras, ou um vetor de zeros se não houver vetores.</li>
+</ul>
+<h4 id="calcular_similaridadevetor1-vetor2"><code>calcular_similaridade(vetor1, vetor2)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Calcula a similaridade de cosseno entre dois vetores.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>vetor1</code>: O primeiro vetor.</li>
+<li><code>vetor2</code>: O segundo vetor.</li>
+<li><strong>Retorno</strong>: A similaridade de cosseno entre os dois vetores.</li>
+</ul>
+<h4 id="recomendar_cartasusuario_palavras-cartas_subgrupo"><code>recomendar_cartas(usuario_palavras, cartas_subgrupo)</code></h4>
+<ul>
+<li><strong>Descrição</strong>: Recomenda cartas com base na similaridade das palavras-chave do usuário e das cartas do subgrupo.</li>
+<li><strong>Parâmetros</strong>:</li>
+<li><code>usuario_palavras</code>: Lista de palavras-chave do usuário.</li>
+<li><code>cartas_subgrupo</code>: Lista de cartas pertencentes a um subgrupo específico.</li>
+<li><strong>Retorno</strong>: Carta recomendada com base na similaridade, ou <code>None</code> se não houver similaridades.</li>
+</ul>
+<h2 id="testes">Testes</h2>
+<p>Para executar a pipeline completa, utilize o seguinte comando:</p>
+<pre><code class="language-bash"># Execute a pipeline completa
+python Recomendar_Cartas/mainRecomendar_Cartas.py
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
