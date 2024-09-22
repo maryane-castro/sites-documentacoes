@@ -1,0 +1,23 @@
+site_name: APPLIEN
+nav:
+  - Home: index.md
+  - Selecionar Cartas: 
+      - Selecionar Cartas: pipeline/SelecionarCartasUsuario/SelecionarCartas.md
+  - Sugerir Primeiras Cartas:
+      - Sugerir Primeira Carta: pipeline/SugerirPrimeirasCartas/SugerirPrimeiraCarta.md 
+      - Pular Primeira Carta: pipeline/SugerirPrimeirasCartas/PularPrimeiraCarta.md 
+  - Recomendar Cartas:
+      - Função Geral: pipeline/RecomendarCartas/FuncaoGeral.md
+      - Analise de Sentimento LLAMA: pipeline/RecomendarCartas/AnaliseSentimentoLLAMA.md
+      - Detecção de Anomalia: pipeline/RecomendarCartas/DetectarAnomalia.md
+      - Recomendar Carta: pipeline/RecomendarCartas/SistemaRecomendacao.md
+
+  
+theme:
+  name: 'material'
+  logo: assets/logo.png
+
+
+  
+
+  

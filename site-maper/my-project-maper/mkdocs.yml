@@ -1,0 +1,19 @@
+site_name: MAPER
+nav:
+  - Home: index.md
+  - PDI: pipeline/pdi.md
+  - Devolutiva: pipeline/devolutiva.md
+  - Áudio: pipeline/audio.md
+  - Utils: 
+    - Utils-Geral: utils/utils-geral.md
+    - Prompts: utils/prompts.md
+
+
+
+theme:
+  name: 'material'
+  logo: assets/logo.png
+
+  
+
+  
