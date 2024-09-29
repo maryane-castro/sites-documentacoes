@@ -4,8 +4,6 @@
 
 O módulo `SentimentAnalyzer` é uma ferramenta projetada para analisar sentimentos em respostas de usuários, utilizando um modelo de linguagem (LLM) para processar o texto e gerar uma análise de sentimento. Este módulo é capaz de interpretar respostas textuais, converter a análise em um formato estruturado (JSON) e visualizar a intensidade do sentimento ao longo do tempo através de um gráfico.
 
-A motivação por trás deste módulo é fornecer uma maneira automatizada e visual de entender a evolução dos sentimentos expressos pelos usuários ao longo do tempo, o que pode ser valioso em diversos contextos, como atendimento ao cliente, análise de feedback ou monitoramento de engajamento.
-
 ## Estrutura do Módulo
 
 ```
