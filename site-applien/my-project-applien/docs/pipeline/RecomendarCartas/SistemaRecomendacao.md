@@ -50,9 +50,10 @@ O custo final é a soma ponderada dessas três componentes, refletindo um balanc
 
 ### Fórmula do Custo:
 
-\[
-\text{Custo da Carta} = (\text{peso\_probabilidade} \times \text{probabilidade}) + (\text{peso\_similaridade\_exp} \times \text{similaridade\_caderno}) + (\text{peso\_similaridade\_just} \times \text{similaridade\_justificativa})
-\]
+```
+Custo da Carta = (peso_probabilidade x probabilidade) + (peso_similaridade x similaridade_caderno) + (peso_similaridade x similaridade_justificativa)
+```
+
 
 ## Dependências
 
