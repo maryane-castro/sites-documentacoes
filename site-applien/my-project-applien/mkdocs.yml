@@ -11,6 +11,8 @@ nav:
       - Analise de Sentimento LLAMA: pipeline/RecomendarCartas/AnaliseSentimentoLLAMA.md
       - Detecção de Anomalia: pipeline/RecomendarCartas/DetectarAnomalia.md
       - Recomendar Carta: pipeline/RecomendarCartas/SistemaRecomendacao.md
+      - Sistema Semântico: pipeline/RecomendarCartas/SistemaSemantico.md
+      - Caixa De Ferramentas: pipeline/RecomendarCartas/CaixaDeFerramentas.md
       - Fluxo de Usuário: pipeline/RecomendarCartas/FluxoDeUsuario.md
 
   

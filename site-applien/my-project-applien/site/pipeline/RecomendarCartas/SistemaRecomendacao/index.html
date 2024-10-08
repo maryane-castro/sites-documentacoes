@@ -12,11 +12,11 @@
         <link rel="prev" href="../DetectarAnomalia/">
       
       
-        <link rel="next" href="../FluxoDeUsuario/">
+        <link rel="next" href="../SistemaSemantico/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.06209087.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#readme-funcao-f_custo" class="md-skip">
+        <a href="#sistemarecomendacao" class="md-skip">
           Skip to content
         </a>
       
@@ -502,46 +502,118 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#visao-geral" class="md-nav__link">
+  <a href="#atributos" class="md-nav__link">
     <span class="md-ellipsis">
-      Visão Geral
+      Atributos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-da-funcao" class="md-nav__link">
+  <a href="#metodos" class="md-nav__link">
     <span class="md-ellipsis">
-      Estrutura da Função
+      Métodos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Estrutura da Função">
+    <nav class="md-nav" aria-label="Métodos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assinatura-da-funcao" class="md-nav__link">
+  <a href="#__init__self-dataset_inicial-list-none" class="md-nav__link">
     <span class="md-ellipsis">
-      Assinatura da Função
+      __init__(self, dataset_inicial: list) -&gt; None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#parametros" class="md-nav__link">
+  <a href="#funcaodebugself" class="md-nav__link">
     <span class="md-ellipsis">
-      Parâmetros
+      funcaoDEBUG(self)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#retorno" class="md-nav__link">
+  <a href="#atualiza_datasetself-opcoes_usuario-list-none" class="md-nav__link">
     <span class="md-ellipsis">
-      Retorno
+      atualiza_dataset(self, opcoes_usuario: list) -&gt; None
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizafluxoself-permissao_para_proximo_subgrupo-bool-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualizaFluxo(self, permissao_para_proximo_subgrupo: bool) -&gt; bool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_subgrupoatualself-id_subgrupo-dict-or-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_subgrupoAtual(self, id_subgrupo) -&gt; dict or None
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicio_primeiracartaself-carta_escolhida-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      inicio_PrimeiraCarta(self, carta_escolhida: str)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_informacoes_subgrupoself-carta-tuple-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_informacoes_subgrupo(self, carta: tuple) -&gt; bool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configura_indice_proximo_subgrupoself-ponto-int-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      configura_indice_proximo_subgrupo(self, ponto: int) -&gt; int
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_lista_cartas_recomendadasself-alfa-peso_probabilidade-peso_similaridade_exp-peso_similaridade_just-caderno_de_ouro-justificativa_usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_lista_cartas_recomendadas(self, alfa, peso_probabilidade, peso_similaridade_exp, peso_similaridade_just, caderno_de_ouro, justificativa_usuario)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retorna_melhor_cartaself-permissao_para_pular_carta-bool-false-tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      retorna_melhor_carta(self, permissao_para_pular_Carta: bool = False) -&gt; tuple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escolher_cartaself-carta_atualnone" class="md-nav__link">
+    <span class="md-ellipsis">
+      escolher_carta(self, carta_atual=None)
     </span>
   </a>
   
@@ -549,66 +621,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#explicacao-do-calculo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explicação do Cálculo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Explicação do Cálculo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formula-do-custo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fórmula do Custo:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dependências
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemplo-de-aplicacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo de Aplicação
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consideracoes-finais" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerações Finais
-    </span>
-  </a>
   
 </li>
       
@@ -616,6 +628,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SistemaSemantico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema Semântico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CaixaDeFerramentas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caixa De Ferramentas
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -676,46 +730,118 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#visao-geral" class="md-nav__link">
+  <a href="#atributos" class="md-nav__link">
     <span class="md-ellipsis">
-      Visão Geral
+      Atributos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-da-funcao" class="md-nav__link">
+  <a href="#metodos" class="md-nav__link">
     <span class="md-ellipsis">
-      Estrutura da Função
+      Métodos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Estrutura da Função">
+    <nav class="md-nav" aria-label="Métodos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assinatura-da-funcao" class="md-nav__link">
+  <a href="#__init__self-dataset_inicial-list-none" class="md-nav__link">
     <span class="md-ellipsis">
-      Assinatura da Função
+      __init__(self, dataset_inicial: list) -&gt; None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#parametros" class="md-nav__link">
+  <a href="#funcaodebugself" class="md-nav__link">
     <span class="md-ellipsis">
-      Parâmetros
+      funcaoDEBUG(self)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#retorno" class="md-nav__link">
+  <a href="#atualiza_datasetself-opcoes_usuario-list-none" class="md-nav__link">
     <span class="md-ellipsis">
-      Retorno
+      atualiza_dataset(self, opcoes_usuario: list) -&gt; None
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizafluxoself-permissao_para_proximo_subgrupo-bool-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualizaFluxo(self, permissao_para_proximo_subgrupo: bool) -&gt; bool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_subgrupoatualself-id_subgrupo-dict-or-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_subgrupoAtual(self, id_subgrupo) -&gt; dict or None
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicio_primeiracartaself-carta_escolhida-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      inicio_PrimeiraCarta(self, carta_escolhida: str)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_informacoes_subgrupoself-carta-tuple-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_informacoes_subgrupo(self, carta: tuple) -&gt; bool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configura_indice_proximo_subgrupoself-ponto-int-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      configura_indice_proximo_subgrupo(self, ponto: int) -&gt; int
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualiza_lista_cartas_recomendadasself-alfa-peso_probabilidade-peso_similaridade_exp-peso_similaridade_just-caderno_de_ouro-justificativa_usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      atualiza_lista_cartas_recomendadas(self, alfa, peso_probabilidade, peso_similaridade_exp, peso_similaridade_just, caderno_de_ouro, justificativa_usuario)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retorna_melhor_cartaself-permissao_para_pular_carta-bool-false-tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      retorna_melhor_carta(self, permissao_para_pular_Carta: bool = False) -&gt; tuple
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escolher_cartaself-carta_atualnone" class="md-nav__link">
+    <span class="md-ellipsis">
+      escolher_carta(self, carta_atual=None)
     </span>
   </a>
   
@@ -723,66 +849,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#explicacao-do-calculo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explicação do Cálculo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Explicação do Cálculo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#formula-do-custo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fórmula do Custo:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dependências
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemplo-de-aplicacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exemplo de Aplicação
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consideracoes-finais" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerações Finais
-    </span>
-  </a>
   
 </li>
       
@@ -801,81 +867,79 @@
                   
 
 
-<h1 id="readme-funcao-f_custo">README - Função <code>f_custo</code></h1>
-<h2 id="visao-geral">Visão Geral</h2>
-<p>A função <code>f_custo</code> é uma parte crítica do sistema de recomendação de cartas. Ela calcula o "custo" ou a relevância de uma carta atual com base em três critérios principais: probabilidade, similaridade com o "Caderno de Ouro" e a similaridade com a justificativa do usuário. Este custo é utilizado para priorizar ou classificar cartas em um sistema de recomendação, ajudando a determinar qual carta deve ser recomendada ao usuário a seguir.</p>
-<h2 id="estrutura-da-funcao">Estrutura da Função</h2>
-<p>A função recebe diversos parâmetros que influenciam o cálculo do custo da carta, levando em consideração o histórico de interações do usuário (cartas visitadas), a sequência de Fibonacci (valores Fibonacci associados às cartas visitadas) e a semântica do conteúdo da carta, do caderno de ouro, e da justificativa fornecida pelo usuário.</p>
-<h3 id="assinatura-da-funcao">Assinatura da Função</h3>
-<pre><code class="language-python">def f_custo(self, carta_atual: str, cartas_visitadas: list, valores_fibonacci: list, alfa: float, peso_probabilidade: float, peso_similaridade_exp: float, peso_similaridade_just: float, caderno_de_ouro: str, justificativa_usuario: str) -&gt; float:
-</code></pre>
-<h3 id="parametros">Parâmetros</h3>
+<h1 id="sistemarecomendacao">SistemaRecomendacao</h1>
+<p>Classe responsável por gerenciar um sistema de recomendação utilizando um dataset inicial. A classe permite a atualização do dataset, a seleção de cartas e a recomendação de melhores opções com base em critérios definidos.</p>
+<h2 id="atributos">Atributos</h2>
 <ul>
-<li><strong><code>carta_atual (str)</code></strong>: A carta atual que está sendo avaliada.</li>
-<li><strong><code>cartas_visitadas (list)</code></strong>: Lista das cartas que já foram visitadas ou interagidas pelo usuário anteriormente.</li>
-<li><strong><code>valores_fibonacci (list)</code></strong>: Valores da sequência de Fibonacci associados às cartas visitadas. Estes valores ajudam a modular a probabilidade da próxima carta recomendada.</li>
-<li><strong><code>alfa (float)</code></strong>: Parâmetro de ajuste para influenciar o cálculo da probabilidade. Esse valor ajuda a ponderar a importância do histórico de interações passadas do usuário.</li>
-<li><strong><code>peso_probabilidade (float)</code></strong>: Peso que define a importância relativa da probabilidade no cálculo do custo final da carta.</li>
-<li><strong><code>peso_similaridade_exp (float)</code></strong>: Peso atribuído à similaridade da carta com o "Caderno de Ouro". O "Caderno de Ouro" é uma espécie de referência ou modelo ideal de carta.</li>
-<li><strong><code>peso_similaridade_just (float)</code></strong>: Peso atribuído à similaridade da carta com a justificativa fornecida pelo usuário. Este parâmetro ajusta a recomendação com base nos desejos ou preferências explícitas do usuário.</li>
-<li><strong><code>caderno_de_ouro (str)</code></strong>: Texto base do Caderno de Ouro, utilizado para comparação de similaridade semântica.</li>
-<li><strong><code>justificativa_usuario (str)</code></strong>: Justificativa fornecida pelo usuário, utilizada para ajustar as recomendações com base em suas preferências ou feedback.</li>
+<li><strong>dataset_inicial</strong>: <code>list</code> - Conjunto de dados inicial para o sistema de recomendação.</li>
+<li><strong>dataset_atual</strong>: <code>list</code> - Cópia profunda do dataset inicial, usada para armazenar o estado atual.</li>
+<li><strong>subgrupo_atual</strong>: <code>dict</code> ou <code>None</code> - O subgrupo atualmente selecionado.</li>
+<li><strong>tupla_melhor_carta_atual</strong>: <code>tuple</code> ou <code>None</code> - A melhor carta atualmente selecionada e seu custo associado.</li>
+<li><strong>lista_cartas_e_custos_atual</strong>: <code>list</code> - Lista de cartas e seus respectivos custos atualizados.</li>
+<li><strong>pulo_permitido</strong>: <code>bool</code> - Indica se o pulo entre cartas é permitido.</li>
+<li><strong>indice_grupo_atual</strong>: <code>int</code> ou <code>None</code> - Índice do grupo/subgrupo atual.</li>
+<li><strong>indice_proximo_grupo</strong>: <code>int</code> ou <code>None</code> - Índice do próximo grupo/subgrupo a ser considerado.</li>
+<li><strong>classe_Atualiza_Cartas</strong>: <code>RetirarCartasNegacao</code> - Instância da classe responsável por atualizar as cartas.</li>
+<li><strong>classe_caixa_de_Ferramentas</strong>: <code>CaixaDeFerramentas</code> - Instância da classe de ferramentas auxiliares.</li>
 </ul>
-<h3 id="retorno">Retorno</h3>
-<ul>
-<li><strong><code>float</code></strong>: Retorna o custo calculado da carta atual. Este valor será utilizado para ranquear ou selecionar a carta a ser recomendada ao usuário. A função também retorna a própria carta (<code>carta_atual</code>), facilitando a correspondência entre o custo e a carta em si.</li>
-</ul>
-<h2 id="explicacao-do-calculo">Explicação do Cálculo</h2>
-<p>A função calcula o custo da carta com base em três componentes principais:</p>
-<ol>
-<li><strong>Probabilidade</strong>:</li>
-<li>É calculada pela função <code>self.probc</code>, que leva em consideração as cartas já visitadas, os valores de Fibonacci associados a elas e o parâmetro <code>alfa</code> que ajusta o peso do histórico nas recomendações futuras.</li>
-<li>
-<p>Esse valor é multiplicado pelo <code>peso_probabilidade</code>, refletindo a importância dessa métrica no custo final.</p>
-</li>
-<li>
-<p><strong>Similaridade com o Caderno de Ouro</strong>:</p>
-</li>
-<li>Utiliza a função <code>similaridade_cosseno_textos</code> para calcular a similaridade entre a carta atual e o Caderno de Ouro.</li>
-<li>
-<p>Multiplicado pelo <code>peso_similaridade_exp</code>, este componente mede o quanto a carta se alinha com o ideal definido pelo sistema.</p>
-</li>
-<li>
-<p><strong>Similaridade com a Justificativa do Usuário</strong>:</p>
-</li>
-<li>Também utilizando <code>similaridade_cosseno_textos</code>, esta métrica calcula o quão bem a carta atual reflete os desejos e preferências expressos pelo usuário em sua justificativa.</li>
-<li>O resultado é ponderado pelo <code>peso_similaridade_just</code>.</li>
-</ol>
-<p>O custo final é a soma ponderada dessas três componentes, refletindo um balanceamento entre probabilidade, similaridade com o modelo ideal e preferências do usuário.</p>
-<h3 id="formula-do-custo">Fórmula do Custo:</h3>
-<pre><code>Custo da Carta = (peso_probabilidade x probabilidade) + (peso_similaridade x similaridade_caderno) + (peso_similaridade x similaridade_justificativa)
-</code></pre>
-<h2 id="dependencias">Dependências</h2>
-<p>A função faz uso das seguintes dependências:</p>
-<ol>
-<li><strong><code>self.probc</code></strong>: Função que calcula a probabilidade de uma carta ser recomendada com base no histórico do usuário e na sequência de Fibonacci.</li>
-<li><strong><code>self.classe_sistema_Semantico.similaridade_cosseno_textos</code></strong>: Função que calcula a similaridade entre dois textos utilizando o cosseno de seus vetores de palavras. Esse método pertence a uma classe do sistema responsável pelo processamento semântico.</li>
-</ol>
-<h2 id="uso">Uso</h2>
-<p>A função é utilizada dentro do sistema de recomendação de cartas para calcular o custo de cada carta disponível. Com base nesse custo, o sistema pode classificar as cartas e sugerir ao usuário a próxima carta que melhor equilibra as recomendações automáticas com as preferências expressas pelo próprio usuário.</p>
-<h2 id="exemplo-de-aplicacao">Exemplo de Aplicação</h2>
-<pre><code class="language-python">custo = self.f_custo(
-    carta_atual=&quot;Carta A&quot;,
-    cartas_visitadas=[&quot;Carta B&quot;, &quot;Carta C&quot;],
-    valores_fibonacci=[1, 2, 3],
-    alfa=0.5,
-    peso_probabilidade=0.4,
-    peso_similaridade_exp=0.3,
-    peso_similaridade_just=0.3,
-    caderno_de_ouro=&quot;Texto ideal de referência&quot;,
-    justificativa_usuario=&quot;Preferência do usuário para esta recomendação&quot;
-)
-
-print(f&quot;Custo da Carta A: {custo[1]}&quot;)
-</code></pre>
-<p>Neste exemplo, o sistema avalia a "Carta A" com base em seu histórico de cartas visitadas, seu alinhamento com o Caderno de Ouro, e as preferências do usuário, retornando o custo associado.</p>
-<h2 id="consideracoes-finais">Considerações Finais</h2>
-<p>A função <code>f_custo</code> é altamente configurável, permitindo ajustar os pesos das variáveis probabilísticas, de similaridade com o modelo ideal e com as preferências do usuário, oferecendo um controle fino sobre o comportamento do sistema de recomendação.</p>
+<h2 id="metodos">Métodos</h2>
+<h3 id="__init__self-dataset_inicial-list-none"><code>__init__(self, dataset_inicial: list) -&gt; None</code></h3>
+<p>Inicializa a classe <code>SistemaRecomendacao</code> com um dataset inicial.</p>
+<p><strong>Parâmetros:</strong>
+- <code>dataset_inicial</code>: <code>list</code> - A lista de dados que será utilizada para iniciar o sistema de recomendação.</p>
+<h3 id="funcaodebugself"><code>funcaoDEBUG(self)</code></h3>
+<p>Exibe informações de depuração sobre o estado atual do sistema, incluindo o dataset, subgrupo atual, melhor carta e índices de grupos.</p>
+<h3 id="atualiza_datasetself-opcoes_usuario-list-none"><code>atualiza_dataset(self, opcoes_usuario: list) -&gt; None</code></h3>
+<p>Atualiza o dataset atual removendo cartas com base nas opções fornecidas pelo usuário.</p>
+<p><strong>Parâmetros:</strong>
+- <code>opcoes_usuario</code>: <code>list</code> - Lista de opções fornecidas pelo usuário para remoção de cartas.</p>
+<h3 id="atualizafluxoself-permissao_para_proximo_subgrupo-bool-bool"><code>atualizaFluxo(self, permissao_para_proximo_subgrupo: bool) -&gt; bool</code></h3>
+<p>Atualiza o fluxo do sistema para o próximo subgrupo, caso a permissão seja concedida.</p>
+<p><strong>Parâmetros:</strong>
+- <code>permissao_para_proximo_subgrupo</code>: <code>bool</code> - Indica se a transição para o próximo subgrupo é permitida.</p>
+<p><strong>Retorna:</strong>
+- <code>bool</code> - <code>True</code> se a transição foi bem-sucedida; caso contrário, <code>False</code>.</p>
+<h3 id="atualiza_subgrupoatualself-id_subgrupo-dict-or-none"><code>atualiza_subgrupoAtual(self, id_subgrupo) -&gt; dict or None</code></h3>
+<p>Retorna o subgrupo correspondente ao ID fornecido.</p>
+<p><strong>Parâmetros:</strong>
+- <code>id_subgrupo</code>: <code>int</code> - Identificador único do subgrupo a ser encontrado.</p>
+<p><strong>Retorna:</strong>
+- <code>dict or None</code> - O subgrupo correspondente ou <code>None</code> se não encontrado.</p>
+<h3 id="inicio_primeiracartaself-carta_escolhida-str"><code>inicio_PrimeiraCarta(self, carta_escolhida: str)</code></h3>
+<p>Inicia o processo com a primeira carta escolhida, atualizando o estado do subgrupo e das cartas.</p>
+<p><strong>Parâmetros:</strong>
+- <code>carta_escolhida</code>: <code>str</code> - Nome da carta escolhida para iniciar o processo.</p>
+<h3 id="atualiza_informacoes_subgrupoself-carta-tuple-bool"><code>atualiza_informacoes_subgrupo(self, carta: tuple) -&gt; bool</code></h3>
+<p>Atualiza as informações do subgrupo com base na carta fornecida, incluindo listas de cartas visitadas e números de Fibonacci.</p>
+<p><strong>Parâmetros:</strong>
+- <code>carta</code>: <code>tuple</code> - Tupla contendo a carta a ser atualizada.</p>
+<p><strong>Retorna:</strong>
+- <code>bool</code> - <code>True</code> se a atualização foi bem-sucedida; caso contrário, <code>False</code>.</p>
+<h3 id="configura_indice_proximo_subgrupoself-ponto-int-int"><code>configura_indice_proximo_subgrupo(self, ponto: int) -&gt; int</code></h3>
+<p>Calcula o índice do próximo subgrupo com base em um ponto inicial, utilizando a regra dos Vortex.</p>
+<p><strong>Parâmetros:</strong>
+- <code>ponto</code>: <code>int</code> - Ponto inicial para o cálculo do próximo subgrupo.</p>
+<p><strong>Retorna:</strong>
+- <code>int</code> - O índice do próximo subgrupo calculado.</p>
+<h3 id="atualiza_lista_cartas_recomendadasself-alfa-peso_probabilidade-peso_similaridade_exp-peso_similaridade_just-caderno_de_ouro-justificativa_usuario"><code>atualiza_lista_cartas_recomendadas(self, alfa, peso_probabilidade, peso_similaridade_exp, peso_similaridade_just, caderno_de_ouro, justificativa_usuario)</code></h3>
+<p>Atualiza a lista de cartas recomendadas com base nos parâmetros fornecidos.</p>
+<p><strong>Parâmetros:</strong>
+- <code>alfa</code>: <code>float</code> - Parâmetro para o cálculo de custo.
+- <code>peso_probabilidade</code>: <code>float</code> - Peso atribuído à probabilidade.
+- <code>peso_similaridade_exp</code>: <code>float</code> - Peso atribuído à similaridade esperada.
+- <code>peso_similaridade_just</code>: <code>float</code> - Peso atribuído à similaridade justificada.
+- <code>caderno_de_ouro</code>: <code>list</code> - Informações adicionais para a recomendação.
+- <code>justificativa_usuario</code>: <code>str</code> - Justificativa fornecida pelo usuário.</p>
+<h3 id="retorna_melhor_cartaself-permissao_para_pular_carta-bool-false-tuple"><code>retorna_melhor_carta(self, permissao_para_pular_Carta: bool = False) -&gt; tuple</code></h3>
+<p>Retorna a melhor carta atual e seu subgrupo associado, com a opção de pular a carta.</p>
+<p><strong>Parâmetros:</strong>
+- <code>permissao_para_pular_Carta</code>: <code>bool</code> - Indica se a carta atual pode ser pulada.</p>
+<p><strong>Retorna:</strong>
+- <code>tuple</code> - A tupla contendo a melhor carta atual e seu subgrupo.</p>
+<h3 id="escolher_cartaself-carta_atualnone"><code>escolher_carta(self, carta_atual=None)</code></h3>
+<p>Seleciona a carta atual a ser atualizada no subgrupo, com base na melhor carta ou na carta fornecida.</p>
+<p><strong>Parâmetros:</strong>
+- <code>carta_atual</code>: <code>tuple</code> ou <code>None</code> - A carta atual a ser escolhida; se <code>None</code>, usa a melhor carta.</p>
 
 
 
@@ -925,7 +989,7 @@ print(f&quot;Custo da Carta A: {custo[1]}&quot;)
     <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>
