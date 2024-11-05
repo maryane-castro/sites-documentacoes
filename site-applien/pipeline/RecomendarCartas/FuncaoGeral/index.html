@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.06209087.min.css">
       
       
 
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#funcao-geral" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -394,6 +399,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Função Geral
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -404,6 +422,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descrição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomendacaooupuloapp_recomendacao-caderno_de_ouro-justificativa_do_usuario-intensidade_do_sentimento-carta_atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      recomendacaoOuPulo(app_recomendacao, caderno_de_ouro, justificativa_do_usuario, intensidade_do_sentimento, carta_atual)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainapp_recomendacao-resposta1-resposta2-resposta3-justificativa1" class="md-nav__link">
+    <span class="md-ellipsis">
+      main(app_recomendacao, resposta1, resposta2, resposta3, justificativa1)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -560,6 +630,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descrição
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descrição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomendacaooupuloapp_recomendacao-caderno_de_ouro-justificativa_do_usuario-intensidade_do_sentimento-carta_atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      recomendacaoOuPulo(app_recomendacao, caderno_de_ouro, justificativa_do_usuario, intensidade_do_sentimento, carta_atual)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainapp_recomendacao-resposta1-resposta2-resposta3-justificativa1" class="md-nav__link">
+    <span class="md-ellipsis">
+      main(app_recomendacao, resposta1, resposta2, resposta3, justificativa1)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -574,9 +687,29 @@
                   
 
 
-  <h1>Função Geral</h1>
-
-
+<h1 id="funcao-geral">Função Geral</h1>
+<h2 id="descricao">Descrição</h2>
+<p>Este conjunto de instruções busca unificar os elementos desenvolvidos do projeto desde o carregamento dos dados a utilização do sistema de recomendação.</p>
+<h3 id="recomendacaooupuloapp_recomendacao-caderno_de_ouro-justificativa_do_usuario-intensidade_do_sentimento-carta_atual"><code>recomendacaoOuPulo(app_recomendacao, caderno_de_ouro, justificativa_do_usuario, intensidade_do_sentimento, carta_atual)</code></h3>
+<p>Atualiza o fluxo do sistema para o próximo subgrupo, caso a permissão seja concedida. Nesse sistema, a recomendação de carta é baseada em critério como o sentimento de usuário.</p>
+<p><strong>Parâmetros:</strong>
+- <code>app_recomendacao</code>: <code>SistemaRecomendacao</code> - Instância da classe do Sistema de Recomendação utilizada para recomendar a carta.
+- <code>caderno_de_ouro</code>: <code>list</code> - Uma lista de três elementos de string onde cada elemento é uma resposta do usuário.
+- <code>justificativa_do_usuario</code>: <code>list</code> - Uma lista de três elementos de string contendo as justificativas do usuário para cada uma das respostas do <code>caderno_de_ouro</code>.
+- <code>intensidade_do_sentimento</code>: <code>list</code> - Intensidade do sentimento gerado pela carta indicada.
+- <code>carta_atual</code>: <code>string</code> - Uma string contendo a carta com a atividade.</p>
+<p><strong>Retorna:</strong>
+- <code>(carta, string)</code>:<code>tuple</code> - Uma tupla contendo a carta indica para o usuário e uma string contendo informações do nome do subgrupo atual e o seu ID (tanto o nome como o ID estão na mesma string).</p>
+<h3 id="mainapp_recomendacao-resposta1-resposta2-resposta3-justificativa1"><code>main(app_recomendacao, resposta1, resposta2, resposta3, justificativa1)</code></h3>
+<p>Função responsável por agrupar todos os componentes do projeto.</p>
+<p><strong>Parâmetros:</strong>
+- <code>app_recomendacao</code>: <code>SistemaRecomendacao</code> - Instância da classe do Sistema de Recomendação utilizada para recomendar a carta.
+- <code>resposta1</code>: <code>string</code> - String contendo a primeira resposta dada pelo usuário.
+- <code>resposta2</code>: <code>string</code> - String contendo a segunda resposta dada pelo usuário.
+- <code>resposta3</code>: <code>string</code> - String contendo a terceira resposta dada pelo usuário.
+- <code>justificativa1</code>: <code>string</code> - Uma string contendo a justificativa da <code>resposta1'</code> indicada pelo usuário.
+<strong>Retorna:</strong>
+- <code>recomendacao_carta_result</code>:<code>string</code> - A string contendo a carta indicada pelo sistema.</p>
 
 
 
@@ -626,7 +759,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
